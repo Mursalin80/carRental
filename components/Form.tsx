@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import { bookingMutation } from "@/services/index";
 
 const Form = ({ car }: any) => {
   const [formValue, setFormValue] = useState({
@@ -7,15 +9,23 @@ const Form = ({ car }: any) => {
     dropOffDate: "",
     pickUpTime: "",
     dropOffTime: "",
-    contactNo: "",
+    contactNumber: "",
+    carId: "",
   });
+
+  useEffect(() => {
+    if (car) {
+      setFormValue({ ...formValue, carId: car.id });
+    }
+  }, [car]);
 
   const handleChange = (e: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log({ formValue });
+  const handleSubmit = async () => {
+    const res = await bookingMutation(formValue);
+    console.log("🚀 ~ file: Form.tsx:28 ~ handleSubmit ~ res:", res);
   };
 
   return (
@@ -44,7 +54,7 @@ const Form = ({ car }: any) => {
           <input
             type="date"
             onChange={handleChange}
-            name="pickupDate"
+            name="pickUpDate"
             className="input input-bordered w-full max-w-lg"
           />
         </div>
@@ -68,7 +78,7 @@ const Form = ({ car }: any) => {
           <input
             type="time"
             onChange={handleChange}
-            name="pickupTime"
+            name="pickUpTime"
             className="input input-bordered w-full max-w-lg"
           />
         </div>
@@ -80,6 +90,17 @@ const Form = ({ car }: any) => {
             type="time"
             onChange={handleChange}
             name="dropOffTime"
+            className="input input-bordered w-full max-w-lg"
+          />
+        </div>
+        <div className="flex flex-col w-full">
+          <label htmlFor="" className="text-gray-400 ">
+            Contect Number
+          </label>
+          <input
+            type="text"
+            onChange={handleChange}
+            name="contactNumber"
             className="input input-bordered w-full max-w-lg"
           />
         </div>

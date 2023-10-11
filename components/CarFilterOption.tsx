@@ -2,17 +2,7 @@
 import { useEffect, useState } from "react";
 
 const CarFilterOption = ({ carsList, setBrand, orderCarList }: any) => {
-  const [brandList, setBrandList] = useState<any>();
-  const BrandSet = new Set();
-
-  useEffect(() => {
-    if (carsList) filterCarList();
-  }, [carsList]);
-
-  const filterCarList = () => {
-    carsList.forEach((item: any) => BrandSet.add(item.carBrand));
-    setBrandList(Array.from(BrandSet));
-  };
+  const [brandList] = useState(["Honda", "Kia", "Toyota", "Mazda", "BMW"]);
 
   return (
     <div className="mt-10 flex items-center justify-center">
@@ -39,10 +29,9 @@ const CarFilterOption = ({ carsList, setBrand, orderCarList }: any) => {
           <option value="" disabled selected>
             Manufacturer
           </option>
-          {brandList &&
-            brandList.map((brand: string, i: number) => {
-              return <option key={i}>{brand}</option>;
-            })}
+          {brandList.map((brand: string, i: number) => {
+            return <option key={i}>{brand}</option>;
+          })}
         </select>
       </div>
     </div>
