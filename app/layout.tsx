@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 
+import { ApolloWrapper } from "@/lib/apollo-wrapper";
 import { Raleway } from "next/font/google";
 import Navbar from "@/components/Navebr";
 
@@ -22,7 +23,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${inter.className}  `}>
           <Navbar />
-          <div className="flex mx-auto w-[90%] justify-center">{children}</div>
+          <div className="flex mx-auto w-[90%] justify-center">
+            <ApolloWrapper>{children}</ApolloWrapper>
+          </div>
         </body>
       </html>
     </ClerkProvider>

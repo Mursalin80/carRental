@@ -1,7 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const CarFilterOption = ({ carsList, setBrand, orderCarList }: any) => {
+const CarFilterOption = ({ setBrand, orderCarList }: any) => {
   const [brandList] = useState(["Honda", "Kia", "Toyota", "Mazda", "BMW"]);
 
   return (
