@@ -2,7 +2,14 @@
 import { useState } from "react";
 
 const CarFilterOption = ({ setBrand, orderCarList }: any) => {
-  const [brandList] = useState(["Honda", "Kia", "Toyota", "Mazda", "BMW"]);
+  const [brandList] = useState([
+    "Honda",
+    "Kia",
+    "Toyota",
+    "Mazda",
+    "BMW",
+    "All Brands",
+  ]);
 
   return (
     <div className="mt-10 flex items-center justify-center">

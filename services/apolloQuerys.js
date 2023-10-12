@@ -22,29 +22,28 @@ export const carQuery = gql`
 
 // mutation
 
-// export const bookingMutation =
-//   gql`
-//     mutation bookingMutation {
-//       createBooking(
-//         data: {
-//           pickUpDate: "` +
-//   formValues.pickUpDate +
-//   `"
-//           pickUpTime: "` +
-//   formValues.pickUpTime +
-//   `"
-//           dropOffDate: "` +
-//   formValues.dropOffDate +
-//   `"
-//           dropOffTime: "` +
-//   formValues.dropOffTime +
-//   `"
-//     contactNumber:"` +
-//   formValues.contactNumber +
-//   `"
-//         }
-//       ) {
-//         id
-//       }
-//     }
-//   `;
+export const Car_Mutation = gql`
+  mutation Booking(
+    $location: String
+    $pickUpDate: String
+    $dropOffDate: String
+    $pickUpTime: String
+    $dropOffTime: String
+    $contactNumber: String
+    $carId: ID
+  ) {
+    createBooking(
+      data: {
+        location: $location
+        pickUpDate: $pickUpDate
+        dropOffDate: $dropOffDate
+        pickUpTime: $pickUpTime
+        dropOffTime: $dropOffTime
+        contactNumber: $contactNumber
+        carId: { connect: { id: $carId } }
+      }
+    ) {
+      id
+    }
+  }
+`;

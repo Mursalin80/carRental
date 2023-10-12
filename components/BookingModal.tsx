@@ -1,5 +1,3 @@
-import React from "react";
-
 import CarCard from "./CarCard";
 import Form from "./Form";
 

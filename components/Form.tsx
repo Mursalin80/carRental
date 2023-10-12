@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { useMutation } from "@apollo/client";
 
-import { bookingMutation } from "@/services/index";
+import { Car_Mutation } from "@/services/apolloQuerys";
 
 const Form = ({ car }: any) => {
   const [formValue, setFormValue] = useState({
@@ -13,6 +14,15 @@ const Form = ({ car }: any) => {
     carId: "",
   });
 
+  const [carMutation, { data, loading, error }] = useMutation(Car_Mutation);
+
+  if (loading) {
+    console.log("Submitting...");
+  }
+  if (error) {
+    console.log({ error });
+  }
+
   useEffect(() => {
     if (car) {
       setFormValue({ ...formValue, carId: car.id });
@@ -23,9 +33,9 @@ const Form = ({ car }: any) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
-    const res = await bookingMutation(formValue);
-    console.log("🚀 ~ file: Form.tsx:28 ~ handleSubmit ~ res:", res);
+  const handleSubmit = () => {
+    console.log(formValue);
+    carMutation({ variables: { ...formValue } });
   };
 
   return (
