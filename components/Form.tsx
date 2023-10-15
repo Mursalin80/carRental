@@ -41,7 +41,7 @@ const Form = ({ car }: any) => {
   return (
     <div>
       <div className="flex flex-col w-full mb-5">
-        <label htmlFor="" className="text-gray-400 ">
+        <label htmlFor="location" className="text-gray-400 ">
           PickUp Location
         </label>
         <select
@@ -58,7 +58,7 @@ const Form = ({ car }: any) => {
       </div>
       <div className="flex flex-col gap-5 mb-5">
         <div className="flex flex-col w-full">
-          <label htmlFor="" className="text-gray-400 ">
+          <label htmlFor="pickUpDate" className="text-gray-400 ">
             PickUp Date
           </label>
           <input
@@ -69,7 +69,7 @@ const Form = ({ car }: any) => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="" className="text-gray-400 ">
+          <label htmlFor="dropOffDate" className="text-gray-400 ">
             DropOff Date
           </label>
           <input
@@ -82,7 +82,7 @@ const Form = ({ car }: any) => {
       </div>
       <div className="flex flex-col gap-5 mb-5">
         <div className="flex flex-col w-full">
-          <label htmlFor="" className="text-gray-400 ">
+          <label htmlFor="pickUpTime" className="text-gray-400 ">
             PickUp Time
           </label>
           <input
@@ -93,7 +93,7 @@ const Form = ({ car }: any) => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="" className="text-gray-400 ">
+          <label htmlFor="dropOffTime" className="text-gray-400 ">
             DropOff Time
           </label>
           <input
@@ -104,7 +104,7 @@ const Form = ({ car }: any) => {
           />
         </div>
         <div className="flex flex-col w-full">
-          <label htmlFor="" className="text-gray-400 ">
+          <label htmlFor="contactNumber" className="text-gray-400 ">
             Contect Number
           </label>
           <input

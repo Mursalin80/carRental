@@ -13,8 +13,8 @@ const CarCard = (props: any) => {
       </h2>
       <div className="flex justify-center">
         <Image
-          src={props.car?.image?.url}
-          alt={props.car?.name}
+          src={props.car.image?.url}
+          alt={props.car?.name || "rental car"}
           width={220}
           height={200}
           className="w-[250px] h-[150px] mb-3 object-contain"

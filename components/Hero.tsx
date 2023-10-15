@@ -15,9 +15,10 @@ const Hero = () => {
         <Image
           src="/hero-car-1.jpg"
           width={400}
-          height={500}
+          height={350}
           alt="hero"
           className="w-full object-cover align-middle"
+          priority={true}
         />
       </div>
     </div>

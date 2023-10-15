@@ -23,7 +23,7 @@ const CarFilterOption = ({ setBrand, orderCarList }: any) => {
           className="select select-bordered w-full max-w-xs"
           onChange={(e) => orderCarList(e.target.value)}
         >
-          <option value="" disabled selected>
+          <option value="Price" disabled selected>
             Price
           </option>
           <option value={1}>Max to Min</option>
@@ -33,7 +33,7 @@ const CarFilterOption = ({ setBrand, orderCarList }: any) => {
           onChange={(e) => setBrand(e.target.value)}
           className="select select-bordered w-full md:block max-w-xs hidden"
         >
-          <option value="" disabled selected>
+          <option value="Manufacturer" disabled selected>
             Manufacturer
           </option>
           {brandList.map((brand: string, i: number) => {

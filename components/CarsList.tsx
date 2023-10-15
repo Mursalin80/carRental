@@ -5,6 +5,7 @@ import BookingModal from "@/components/BookingModal";
 
 const CarsList = (props: any) => {
   const [selectedCar, setSelectedCar] = useState([]);
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {props.carsList?.map((car: any, i: number) => (
