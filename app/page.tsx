@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import SearchInput from "@/components/SearchInput";
 import CarFilterOption from "@/components/CarFilterOption";
 import CarsList from "@/components/CarsList";
+import { useTheme } from "@/context/Theme";
 
 import { carQuery } from "@/services/apolloQuerys";
 
@@ -15,6 +16,7 @@ import { carQuery } from "@/services/apolloQuerys";
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([]);
   const [carsOrgList, setCarsOrgList] = useState<any>([]);
+  const { theme } = useTheme();
 
   const { data }: any = useSuspenseQuery(carQuery);
 
@@ -40,7 +42,7 @@ export default function Home() {
     setCarsList(sortedData);
   };
   return (
-    <div className="">
+    <div className="" data-theme={theme}>
       <Hero />
       <SearchInput />
       <CarFilterOption
